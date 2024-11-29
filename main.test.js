@@ -35,7 +35,7 @@ describe("String Calculator", () => {
   
   describe("when string contains negative numbers", () => {
     it("should throw an error", () => {
-      expect(() => add("-1")).toThrowError();
+      expect(() => add("-1, 2, -3")).toThrow("negative numbers not allowed -1,-3");
     });
   });
-})
+});

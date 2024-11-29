@@ -16,7 +16,7 @@ function stringArrayToNumbers(stringNumbers) {
   
   if (isHeaderPresent(stringNumbers)) {
     delimiter = stringNumbers[2];
-    headerLessStringNumbers =  stringNumbers.split("\n")[1];
+    headerLessStringNumbers = stringNumbers.split("\n")[1];
   } else {
     delimiter = ","
     headerLessStringNumbers = normalizeNewLineChars(stringNumbers);
@@ -42,11 +42,11 @@ function isHeaderPresent(stringNumbers) {
 }
 
 function checkNegativeNumbers(numbers) {
-  numbers.forEach(number => {
-    if (number < 0){
-      throw new RangeError("Numbers must be greater than 0");
-    }
-  });
+  let negativeNumbers = numbers.filter((number) => number < 0)
+  
+  if (negativeNumbers.length > 0) {
+    throw new RangeError("negative numbers not allowed " + negativeNumbers.join(","));
+  }
 }
 
 module.exports = add;

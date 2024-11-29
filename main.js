@@ -19,7 +19,7 @@ function stringArrayToNumbers(stringNumbers) {
     headerLessStringNumbers =  stringNumbers.split("\n")[1];
   } else {
     delimiter = ","
-    headerLessStringNumbers = stringNumbers
+    headerLessStringNumbers = normalizeNewLineChars(stringNumbers);
   }
   
   return headerLessStringNumbers
@@ -27,6 +27,10 @@ function stringArrayToNumbers(stringNumbers) {
       .map((strNumber) => {
         return parseInt(strNumber);
       })
+}
+
+function normalizeNewLineChars(stringNumbers) {
+  return stringNumbers.replace(/\n/g, ",");
 }
 
 function isHeaderPresent(stringNumbers) {

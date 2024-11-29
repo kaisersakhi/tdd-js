@@ -11,5 +11,8 @@
   },
   "author": "Kaiser Sakhi",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

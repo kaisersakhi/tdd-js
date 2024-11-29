@@ -11,15 +11,14 @@ function add(stringNumbers) {
 }
 
 function stringArrayToNumbers(stringNumbers) {
-  return normalizeNewLineChars(stringNumbers)
-      .split(",")
+  let delimiter = stringNumbers[1];
+  let headerLessStringNumbers = stringNumbers.slice(3, -1);
+  
+  return headerLessStringNumbers
+      .split(delimiter)
       .map((strNumber) => {
         return parseInt(strNumber);
       })
-}
-
-function normalizeNewLineChars(stringNumbers) {
-  return stringNumbers.replace(/\n/g, ",");
 }
 
 module.exports = add;

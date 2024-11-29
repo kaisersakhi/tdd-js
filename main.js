@@ -30,7 +30,7 @@ function stringArrayToNumbers(stringNumbers) {
 }
 
 function isHeaderPresent(stringNumbers) {
-  return stringNumbers.contains("//");
+  return stringNumbers.includes("//");
 }
 
 module.exports = add;

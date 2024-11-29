@@ -11,14 +11,26 @@ function add(stringNumbers) {
 }
 
 function stringArrayToNumbers(stringNumbers) {
-  let delimiter = stringNumbers[1];
-  let headerLessStringNumbers = stringNumbers.slice(3, -1);
+  let delimiter;
+  let headerLessStringNumbers;
+  
+  if (isHeaderPresent(stringNumbers)) {
+    delimiter = stringNumbers[2];
+    headerLessStringNumbers =  stringNumbers.split("\n")[1];
+  } else {
+    delimiter = ","
+    headerLessStringNumbers = stringNumbers
+  }
   
   return headerLessStringNumbers
       .split(delimiter)
       .map((strNumber) => {
         return parseInt(strNumber);
       })
+}
+
+function isHeaderPresent(stringNumbers) {
+  return stringNumbers.contains("//");
 }
 
 module.exports = add;

@@ -22,11 +22,15 @@ function stringArrayToNumbers(stringNumbers) {
     headerLessStringNumbers = normalizeNewLineChars(stringNumbers);
   }
   
-  return headerLessStringNumbers
+  let numbers = headerLessStringNumbers
       .split(delimiter)
       .map((strNumber) => {
         return parseInt(strNumber);
-      })
+      });
+  
+  checkNegativeNumbers(numbers);
+  
+  return numbers;
 }
 
 function normalizeNewLineChars(stringNumbers) {
@@ -35,6 +39,14 @@ function normalizeNewLineChars(stringNumbers) {
 
 function isHeaderPresent(stringNumbers) {
   return stringNumbers.includes("//");
+}
+
+function checkNegativeNumbers(numbers) {
+  numbers.forEach(number => {
+    if (number < 0){
+      throw new RangeError("Numbers must be greater than 0");
+    }
+  });
 }
 
 module.exports = add;

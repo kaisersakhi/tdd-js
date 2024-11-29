@@ -32,4 +32,10 @@ describe("String Calculator", () => {
       })
     })
   });
+  
+  describe("when string contains negative numbers", () => {
+    it("should throw an error", () => {
+      expect(() => add("-1")).toThrowError();
+    });
+  });
 })

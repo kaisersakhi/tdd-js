@@ -21,7 +21,7 @@ describe("String Calculator", () => {
   
   describe("when the string contains new lines as well as commas", () => {
     it("returns the sum of the numbers", () => {
-      expect(add("10\n20\n30,40")).toBe(55);
+      expect(add("10\n20\n30,40")).toBe(100);
     })
   });
 })

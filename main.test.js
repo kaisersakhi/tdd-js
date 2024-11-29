@@ -17,5 +17,11 @@ describe("String Calculator", () => {
     it("returns the sum of the numbers", () => {
       expect(add("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")).toBe(55);
     })
-  })
+  });
+  
+  describe("when the string contains new lines as well as commas", () => {
+    it("returns the sum of the numbers", () => {
+      expect(add("10\n20\n30,40")).toBe(55);
+    })
+  });
 })

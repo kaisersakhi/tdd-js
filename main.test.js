@@ -24,4 +24,12 @@ describe("String Calculator", () => {
       expect(add("10\n20\n30,40")).toBe(100);
     })
   });
+  
+  describe("when the string contains custom line delimiter", () => {
+    describe("when the customer delimiter is semicolon", () => {
+      it("should detect semicolon as the delimiter and return the sum of the numbers", () => {
+        expect(add("//;\n10;20;30;40")).toBe(100);
+      })
+    })
+  });
 })
